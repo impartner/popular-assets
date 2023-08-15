@@ -1,0 +1,40 @@
+<div class="asset-display">
+  <div [formGroup]="form" class="form">
+    <div>
+      <h2>{{ "edit.configuration" | i18next }}</h2>
+      <impdc-form-field>
+        <impdc-label>{{ "edit.collectionLabel" | i18next }}</impdc-label>
+        <impdc-select
+          formControlName="collectionId"
+          [placeholder]="'edit.placeholder' | i18next"
+        >
+          <impdc-select-option
+            [value]="''"
+            [label]="'edit.placeholder' | i18next"
+          ></impdc-select-option>
+          <impdc-select-option
+            *ngFor="let collection of collections"
+            [value]="collection.id"
+            [label]="collection.name"
+          ></impdc-select-option>
+        </impdc-select>
+      </impdc-form-field>
+    </div>
+    <div>
+      <div>
+        <h2>{{ "edit.localization" | i18next }}</h2>
+        <div>
+          <div *ngFor="let language of languages">
+            <impdc-form-field>
+              <impdc-label>{{ 'edit.' + language.locale | i18next }}</impdc-label>
+              <input
+                impdcInput
+                [formControlName]="language.locale + '_description'"
+              />
+            </impdc-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

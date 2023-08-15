@@ -1,0 +1,35 @@
+{
+  "manifestVersion": "1",
+  "type": "custom.popular-assets",
+  "name": "Popular Assets",
+  "description": "Shows the partner popular assets by configured collection.",
+  "version": "1.0.0",
+  "author": "Impartner Software",
+  "localization": {
+    "en": {
+      "name": "Popular Assets",
+      "description": "Shows the partner popular assets by configured collection."
+    },
+    "es": {
+      "name": "Activos populares",
+      "description": "Muestra los activos populares del socio por colección configurada."
+    }
+  },
+  "isActive": true,
+  "availableIn": ["Dashboard", "GeneralPurpose"],
+  "mainIconName": null,
+  "widgetIcons": [],
+  "style": "BS5",
+  "widgetComponents": [
+    {
+      "widgetMode": "View",
+      "tagId": "uw-popular-assets-view",
+      "sourceUrl": "popular-assets.min.js"
+    },
+    {
+      "widgetMode": "Edit",
+      "tagId": "uw-popular-assets-edit",
+      "sourceUrl": "popular-assets.min.js"
+    }
+  ]
+}

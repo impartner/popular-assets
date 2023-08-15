@@ -1,0 +1,149 @@
+{
+  "en": {
+    "popularAssets": {
+      "view": {
+        "title": "Popular Assets",
+        "view": "View Asset"
+      },
+      "edit": {
+        "collectionLabel": "Collection",
+        "placeholder": "- Select -",
+        "configuration": "Configuration - Filters",
+        "localization": "Localization - Description",
+        "en": "English",
+        "es": "Spanish",
+        "de": "German",
+        "pt": "Portuguese",
+        "fr": "French",
+        "zh-CN": "Chinese",
+        "ja": "Japanese"
+      }
+    }
+  },
+  "es": {
+    "popularAssets": {
+      "view": {
+        "title": "Bienes Populares",
+        "view": "Ver activo"
+      },
+      "edit": {
+        "collectionLabel": "Colección",
+        "placeholder": "- Seleccionar -",
+        "configuration": "Configuración - Filtros",
+        "localization": "Localización - Descripción",
+        "en": "inglés",
+        "es": "español",
+        "de": "alemán",
+        "pt": "portugués",
+        "fr": "francés",
+        "zh-CN": "chino",
+        "ja": "japonés"
+      }
+    }
+  },
+  "pt": {
+    "popularAssets": {
+      "view": {
+        "title": "Recursos populares",
+        "view": "Visualizar recurso"
+      },
+      "edit": {
+        "collectionLabel": "Coleção",
+        "placeholder": "- Selecione -",
+        "configuration": "Configuração - Filtros",
+        "localization": "Localização - Descrição",
+        "en": "Inglês",
+        "es": "espanhol",
+        "de": "alemão",
+        "pt": "Português",
+        "fr": "Francês",
+        "zh-CN": "chinês",
+        "ja": "japonês"
+      }
+    }
+  },
+  "de": {
+    "popularAssets": {
+      "view": {
+        "title": "Beliebte Assets",
+        "view": "Asset anzeigen"
+      },
+      "edit": {
+        "collectionLabel": "Sammlung",
+        "placeholder": "- Auswählen -",
+        "configuration": "Konfiguration - Filter",
+        "localization": "Lokalisierung - Beschreibung",
+        "en": "Englisch",
+        "es": "Spanisch",
+        "de": "Deutsch",
+        "pt": "Portugiesisch",
+        "fr": "Französisch",
+        "zh-CN": "Chinesisch",
+        "ja": "Japanisch"
+      }
+    }
+  },
+  "fr": {
+    "popularAssets": {
+      "view": {
+        "title": "Actifs populaires",
+        "view": "Afficher l'actif"
+      },
+      "edit": {
+        "collectionLabel": "Collection",
+        "placeholder": "- Sélectionner -",
+        "configuration": "Configuration - Filtres",
+        "localization": "Localisation - Description",
+        "en": "Anglais",
+        "es": "Espagnol",
+        "de": "Allemand",
+        "pt": "Portugais",
+        "fr": "Français",
+        "zh-CN": "Chinois",
+        "ja": "japonais"
+      }
+    }
+  },
+  "zh-CN": {
+    "popularAssets": {
+      "view": {
+        "title": "热门资产",
+        "view": "查看资产"
+      },
+      "edit": {
+        "collectionLabel": "收藏",
+        "placeholder": "- 选择-",
+        "configuration": "配置 - 过滤器",
+        "localization": "本地化 - 描述",
+        "en": "英语",
+        "es": "西班牙语",
+        "de": "德语",
+        "pt": "葡萄牙语",
+        "fr": "法语",
+        "zh-CN": "中文",
+        "ja": "日语"
+      }
+    }
+  },
+  "ja": {
+    "popularAssets": {
+      "view": {
+        "title": "人気のアセット",
+        "view": "アセットを表示"
+      },
+      "edit": {
+        "collectionLabel": "コレクション",
+        "プレースホルダー": "- 選択 -",
+        "configuration": "構成 - フィルター",
+        "ローカリゼーション": "ローカリゼーション - 説明",
+        "en": "英語",
+        "es": "スペイン語",
+        "de": "ドイツ語",
+        "pt": "ポルトガル語",
+        "fr": "フランス語",
+        "zh-CN": "中国語",
+        "ja": "日本語"
+      }
+    }
+  }
+}
