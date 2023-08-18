@@ -4,20 +4,15 @@
       <h2>{{ "edit.configuration" | i18next }}</h2>
       <impdc-form-field>
         <impdc-label>{{ "edit.collectionLabel" | i18next }}</impdc-label>
-        <impdc-select
-          formControlName="collectionId"
-          [placeholder]="'edit.placeholder' | i18next"
-        >
-          <impdc-select-option
-            [value]="''"
-            [label]="'edit.placeholder' | i18next"
-          ></impdc-select-option>
-          <impdc-select-option
+        <select impdcNativeSelect formControlName="collectionId">
+          <option value="">{{ "edit.placeholder" | i18next }}</option>
+          <option
             *ngFor="let collection of collections"
             [value]="collection.id"
-            [label]="collection.name"
-          ></impdc-select-option>
-        </impdc-select>
+          >
+            {{ collection.name }}
+          </option>
+        </select>
       </impdc-form-field>
     </div>
     <div>

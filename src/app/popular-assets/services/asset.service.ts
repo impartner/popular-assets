@@ -64,6 +64,7 @@ export class AssetService implements OnDestroy {
     this.impartnerObjectService
       .getMany<IAssetCollection>('AssetCollection', {
         fields: ['id', 'name', 'assetCount'],
+        take: 1000
       })
       .pipe(takeUntil(this._onDestroy$))
       .subscribe((result) => {
