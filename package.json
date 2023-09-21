@@ -16,7 +16,7 @@
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
-    "@angular/elements": "14.2.12",
+    "@angular/elements": "^14.2.0",
     "@angular/forms": "^14.2.0",
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
@@ -28,7 +28,7 @@
     "@ng-bootstrap/ng-bootstrap": "13.1.1",
     "@popperjs/core": "2.10.2",
     "nanoid": "4.0.2",
-    "rxjs": "~7.5.0",
+    "rxjs": "^7.5.0",
     "sanitize-html": "2.10.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
