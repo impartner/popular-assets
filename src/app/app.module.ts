@@ -31,7 +31,7 @@ import {
       isCustom: true,
       widgetDefinition: {
         name: 'Popular Assets',
-        type: 'uw-popular-assets',
+        type: 'custom.popular-assets',
         style: StyleType.ImpartnerHex,
         modeComponents: {
           view: {
