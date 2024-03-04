@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "popular-assets:build:production"
+              "buildTarget": "popular-assets:build:production"
             },
             "development": {
-              "browserTarget": "popular-assets:build:development"
+              "buildTarget": "popular-assets:build:development"
             }
           },
           "options": {
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "popular-assets:build"
+            "buildTarget": "popular-assets:build"
           }
         },
         "test": {
