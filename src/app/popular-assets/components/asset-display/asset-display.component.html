@@ -3,15 +3,11 @@
     <h3>{{ name }}</h3>
   </div>
   <div class="thumbnail-container">
-    <img
-      *ngIf="validThumbnail && src; else thumbnailFallback"
-      [src]="src"
-      class="img-fluid"
-      (error)="validThumbnail = false"
-    />
-    <ng-template #thumbnailFallback>
+    @if (validThumbnail && src) {
+      <img [src]="src" class="img-fluid" (error)="validThumbnail = false" />
+    } @else {
       <i class="fas fa-file default-thumbnail"></i>
-    </ng-template>
+    }
   </div>
   <div class="buttons">
     <div>
@@ -21,7 +17,7 @@
     </div>
     <div>
       <button impdcButton theme="primary" (click)="navigateToAsset()">
-        {{ "view.view" | i18next }}
+        {{ 'view.view' | i18next }}
       </button>
     </div>
   </div>

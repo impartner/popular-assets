@@ -1,8 +1,7 @@
 import { Component, HostBinding, Inject, Input, OnInit } from '@angular/core';
-import {
-  IImpartnerRouter,
-  IMPARTNER_ROUTER_TOKEN,
-} from '@impartner/angular-sdk';
+import { ImpartnerI18NextModule } from '@impartner/angular-apps/i18n';
+import { IImpartnerRouter, IMPARTNER_ROUTER_TOKEN } from '@impartner/angular-sdk';
+import { ButtonModule } from '@impartner/design-components';
 
 import { AssetService } from '../../services';
 
@@ -10,6 +9,7 @@ import { AssetService } from '../../services';
   selector: 'app-asset-display',
   templateUrl: './asset-display.component.html',
   styleUrls: ['./asset-display.component.scss'],
+  imports: [ButtonModule, ImpartnerI18NextModule]
 })
 export class AssetDisplayComponent implements OnInit {
   @Input()
@@ -64,7 +64,7 @@ export class AssetDisplayComponent implements OnInit {
 
   public navigateToAsset(): void {
     this._impartnerRouter.navigate(`s/assets?id=${this.id}`, undefined, {
-      openNewTab: true,
+      openNewTab: true
     });
   }
 }

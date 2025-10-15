@@ -1,6 +1,8 @@
 <div class="popular-assets-container">
-  <h2>{{ "view.title" | i18next }}</h2>
-  <h3 *ngIf="collectionName">{{ collectionName }}</h3>
+  <h2>{{ 'view.title' | i18next }}</h2>
+  @if (collectionName) {
+    <h3>{{ collectionName }}</h3>
+  }
   <p>{{ description }}</p>
   <div
     impdc-scrollable
@@ -9,18 +11,19 @@
     [clickScrollMultiplier]="1"
     impdcBranded
   >
-    <app-asset-display
-      *ngFor="let asset of assets"
-      [id]="asset.id"
-      [name]="asset.name"
-      [downloadCount]="asset.downloadCount"
-      [extension]="asset.extension"
-      [totalLikes]="asset.totalLikes"
-      [viewCount]="asset.viewCount"
-      [code]="asset.code"
-      [contentType]="asset.contentType"
-      [sharedCount]="asset.sharedCount"
-      [sharedHitCount]="asset.sharedHitCount"
-    ></app-asset-display>
+    @for (asset of assets; track asset) {
+      <app-asset-display
+        [id]="asset.id"
+        [name]="asset.name"
+        [downloadCount]="asset.downloadCount"
+        [extension]="asset.extension"
+        [totalLikes]="asset.totalLikes"
+        [viewCount]="asset.viewCount"
+        [code]="asset.code"
+        [contentType]="asset.contentType"
+        [sharedCount]="asset.sharedCount"
+        [sharedHitCount]="asset.sharedHitCount"
+      ></app-asset-display>
+    }
   </div>
 </div>

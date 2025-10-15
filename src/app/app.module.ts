@@ -6,17 +6,13 @@ import { LocalImpartnerWidgetModule } from '@impartner/angular-apps/local-dev';
 import { ImpartnerSdkModule } from '@impartner/angular-sdk';
 import {
   AbstractImpartnerWidgetAppModule,
-  ImpartnerWidgetModule,
+  ImpartnerWidgetModule
 } from '@impartner/angular-apps/widget';
 import { Resource } from 'i18next';
 
 import { environment } from '../environments/environment';
 import * as translations from '../translations.json';
-import {
-  PopularAssetsEditComponent,
-  PopularAssetsModule,
-  PopularAssetsViewComponent,
-} from './popular-assets';
+import { PopularAssetsEditComponent, PopularAssetsViewComponent } from './popular-assets';
 
 @NgModule({
   declarations: [],
@@ -36,23 +32,21 @@ import {
         modeComponents: {
           view: {
             componentType: PopularAssetsViewComponent,
-            webComponentTag: 'uw-popular-assets-view',
+            webComponentTag: 'uw-popular-assets-view'
           },
           edit: {
             componentType: PopularAssetsEditComponent,
-            webComponentTag: 'uw-popular-assets-edit',
-          },
-        },
-        ngModuleType: PopularAssetsModule,
-      },
+            webComponentTag: 'uw-popular-assets-edit'
+          }
+        }
+      }
     }),
     environment.production
       ? []
       : LocalImpartnerWidgetModule.forRoot(environment, {
-          defaultTenantId: 40,
-        }),
-    PopularAssetsModule,
+          defaultTenantId: 40
+        })
   ],
-  providers: [],
+  providers: []
 })
 export class AppModule extends AbstractImpartnerWidgetAppModule {}

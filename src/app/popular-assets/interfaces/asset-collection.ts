@@ -1,5 +1,5 @@
 export interface IAssetCollection {
-    id: number;
-    name: string;
-    assetCount: number;
+  id: number;
+  name: string;
+  assetCount: number;
 }

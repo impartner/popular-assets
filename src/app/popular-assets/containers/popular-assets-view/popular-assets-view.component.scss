@@ -1,11 +1,11 @@
 .popular-assets-container {
-    .asset-list {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
+  .asset-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 
-        ::ng-deep .impdc-scrollable {
-            border: 1px solid var(--impd-color-gray-300);
-        }
+    ::ng-deep .impdc-scrollable {
+      border: 1px solid var(--impd-color-gray-300);
     }
+  }
 }

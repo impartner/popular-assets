@@ -1,33 +1,31 @@
 <div class="asset-display">
   <div [formGroup]="form" class="form">
     <div>
-      <h2>{{ "edit.configuration" | i18next }}</h2>
+      <h2>{{ 'edit.configuration' | i18next }}</h2>
       <impdc-form-field>
-        <impdc-label>{{ "edit.collectionLabel" | i18next }}</impdc-label>
+        <impdc-label>{{ 'edit.collectionLabel' | i18next }}</impdc-label>
         <select impdcNativeSelect formControlName="collectionId">
-          <option value="">{{ "edit.placeholder" | i18next }}</option>
-          <option
-            *ngFor="let collection of collections"
-            [value]="collection.id"
-          >
-            {{ collection.name }}
-          </option>
+          <option value="">{{ 'edit.placeholder' | i18next }}</option>
+          @for (collection of collections; track collection) {
+            <option [value]="collection.id">
+              {{ collection.name }}
+            </option>
+          }
         </select>
       </impdc-form-field>
     </div>
     <div>
       <div>
-        <h2>{{ "edit.localization" | i18next }}</h2>
+        <h2>{{ 'edit.localization' | i18next }}</h2>
         <div>
-          <div *ngFor="let language of languages">
-            <impdc-form-field>
-              <impdc-label>{{ 'edit.' + language.locale | i18next }}</impdc-label>
-              <input
-                impdcInput
-                [formControlName]="language.locale + '_description'"
-              />
-            </impdc-form-field>
-          </div>
+          @for (language of languages; track language) {
+            <div>
+              <impdc-form-field>
+                <impdc-label>{{ 'edit.' + language.locale | i18next }}</impdc-label>
+                <input impdcInput [formControlName]="language.locale + '_description'" />
+              </impdc-form-field>
+            </div>
+          }
         </div>
       </div>
     </div>

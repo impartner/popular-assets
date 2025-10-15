@@ -5,23 +5,21 @@ import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { IAsset, IAssetCollection } from '../interfaces';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AssetService implements OnDestroy {
-  public collections$: BehaviorSubject<
+  public collections$: BehaviorSubject<IAssetCollection[]> = new BehaviorSubject<
     IAssetCollection[]
-  > = new BehaviorSubject<IAssetCollection[]>([]);
+  >([]);
   public assets$: BehaviorSubject<IAsset[]> = new BehaviorSubject<IAsset[]>([]);
-  public collection$: BehaviorSubject<
+  public collection$: BehaviorSubject<IAssetCollection | undefined> = new BehaviorSubject<
     IAssetCollection | undefined
-  > = new BehaviorSubject<IAssetCollection | undefined>(undefined);
+  >(undefined);
 
   private baseUrl = '/prm/api/objects/v1/asset/';
   private _onDestroy$ = new Subject<void>();
 
-  constructor(
-    private readonly impartnerObjectService: ImpartnerObjectService
-  ) {}
+  constructor(private readonly impartnerObjectService: ImpartnerObjectService) {}
 
   public getAssets(collection: string): void {
     let filter = `isActive = true and assetStatus = 'Published'`;
@@ -42,19 +40,19 @@ export class AssetService implements OnDestroy {
           'code',
           'contentType',
           'sharedCount',
-          'sharedHitCount',
+          'sharedHitCount'
         ],
         filter,
         take: 5,
         orderBy: [
           {
             field: 'downloadCount',
-            direction: 'desc',
-          },
-        ],
+            direction: 'desc'
+          }
+        ]
       })
       .pipe(takeUntil(this._onDestroy$))
-      .subscribe((result) => {
+      .subscribe(result => {
         const records = [...(result.data?.results || [])];
         this.assets$.next(records);
       });
@@ -67,7 +65,7 @@ export class AssetService implements OnDestroy {
         take: 1000
       })
       .pipe(takeUntil(this._onDestroy$))
-      .subscribe((result) => {
+      .subscribe(result => {
         const records = [...(result.data?.results || [])];
         this.collections$.next(records);
       });
@@ -75,11 +73,11 @@ export class AssetService implements OnDestroy {
 
   public getAssetCollection(id: string): void {
     this.impartnerObjectService
-    .get<IAssetCollection>('AssetCollection', id)
-    .pipe(takeUntil(this._onDestroy$))
-    .subscribe((result) => {
-      this.collection$.next(result.data);
-    });
+      .get<IAssetCollection>('AssetCollection', id)
+      .pipe(takeUntil(this._onDestroy$))
+      .subscribe(result => {
+        this.collection$.next(result.data);
+      });
   }
 
   public getDownloadUrl(code: string): string {

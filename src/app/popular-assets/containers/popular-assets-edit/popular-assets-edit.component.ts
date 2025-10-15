@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ImpartnerI18NextModule } from '@impartner/angular-apps/i18n';
 import { BaseWidgetEditComponent } from '@impartner/angular-apps/widget';
 import {
   IAppLanguage,
@@ -8,7 +9,8 @@ import {
   ImpartnerConfigService,
   ImpartnerEventBusService
 } from '@impartner/angular-sdk';
-import {  debounceTime, takeUntil } from 'rxjs';
+import { ImpdcFormsModule } from '@impartner/design-components';
+import { debounceTime, takeUntil } from 'rxjs';
 
 import { DEFAULT_WIDGET_CONFIG } from '../../constants';
 import { IAssetCollection, IPopularAssetsConfig } from '../../interfaces';
@@ -18,10 +20,12 @@ import { AssetService } from '../../services';
   selector: 'app-popular-assets-edit',
   templateUrl: './popular-assets-edit.component.html',
   styleUrls: ['./popular-assets-edit.component.scss'],
+  imports: [ImpartnerI18NextModule, ImpdcFormsModule, ReactiveFormsModule]
 })
 export class PopularAssetsEditComponent
   extends BaseWidgetEditComponent<IPopularAssetsConfig>
-  implements OnInit {
+  implements OnInit
+{
   public collections: IAssetCollection[] = [];
   public form: FormGroup = new FormGroup({
     collectionId: new FormControl(''),
@@ -51,9 +55,7 @@ export class PopularAssetsEditComponent
   }
 
   private _fetchCollections(): void {
-    this._assetService.collections$
-    .pipe(takeUntil(this.onDestroy$))
-    .subscribe(collections => {
+    this._assetService.collections$.pipe(takeUntil(this.onDestroy$)).subscribe(collections => {
       this.collections = collections;
       this._changeDetectorRef.detectChanges();
     });
@@ -64,13 +66,13 @@ export class PopularAssetsEditComponent
   private _setUpForm(): void {
     this.form.patchValue({ collectionId: this.widgetConfig.collectionId });
 
-    this.form.valueChanges.pipe(takeUntil(this.onDestroy$)).subscribe((value) => {
+    this.form.valueChanges.pipe(takeUntil(this.onDestroy$)).subscribe(value => {
       this.widgetConfig.collectionId = value.collectionId;
 
       this.emitUpdatedWidgetConfigEvent(this.widgetConfig);
     });
 
-      this._setUpLocalizationForm();
+    this._setUpLocalizationForm();
   }
 
   private _setUpLocalizationForm(): void {
@@ -78,14 +80,17 @@ export class PopularAssetsEditComponent
 
     this.languages.forEach(language => {
       const controlName = `${language.locale}_description`;
-      this.form.addControl(controlName, new FormControl(this.localization![language.locale]['description'] || ''));
+      this.form.addControl(
+        controlName,
+        new FormControl(this.localization![language.locale]['description'] || '')
+      );
       this.form.controls[controlName].valueChanges
-      .pipe(takeUntil(this.onDestroy$), debounceTime(500))
-      .subscribe(value => {
-        this.localization![language.locale]['description'] = value;
+        .pipe(takeUntil(this.onDestroy$), debounceTime(500))
+        .subscribe(value => {
+          this.localization![language.locale]['description'] = value;
 
-        this.emitUpdatedLocalizationEvent(this.localization!);
-      });
+          this.emitUpdatedLocalizationEvent(this.localization!);
+        });
     });
   }
 }
